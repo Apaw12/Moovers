@@ -1,0 +1,19 @@
+<resources>
+    <style name="ErrorTextAppearance" parent="@android:style/TextAppearance">
+        <item name="android:textColor">#FF0000</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:minHeight">16dp</item>
+        <item name="android:maxHeight">16dp</item>
+    </style>
+
+    <style name="AppTheme" parent="Theme.MaterialComponents.DayNight">
+        <item name="android:textViewStyle">@style/ErrorTextAppearance</item>
+    </style>
+
+    <style name="SingleStarRating" parent="Widget.AppCompat.RatingBar.Small">
+        <item name="android:minHeight">16dp</item>
+        <item name="android:maxHeight">16dp</item>
+        <item name="android:numStars">1</item>
+        <item name="android:progressDrawable">@drawable/custom_ratingbar</item>
+    </style>
+</resources>

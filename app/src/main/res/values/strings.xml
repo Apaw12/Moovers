@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">MOovers</string>
+
+    <!-- Login Screen -->
+    <string name="hello_moovers">Hello, MOovers!</string>
+    <string name="email_hint">Masukkan kata sandi email...</string>
+    <string name="username_hint">Buat nama pengguna...</string>
+    <string name="login_button">LOGIN</string>
+    <string name="register_button">REGISTER</string>
+    <!-- Register Screen -->
+    <string name="register_title">Register</string>
+    <string name="full_name_label">Nama Lengkap</string>
+    <string name="full_name_hint">Input nama lengkap...</string>
+    <string name="email_label">Email</string>
+    <string name="email_hint">Masukkan email...</string>
+    <string name="password_label">Password</string>
+    <string name="password_hint">Buat password...</string>
+    <string name="register_button">REGISTER</string>
+    <string name="error_empty_field">%s tidak boleh kosong</string>
+
+</resources>
+

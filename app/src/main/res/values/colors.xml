@@ -1,0 +1,18 @@
+<resources>
+    <!-- Warna dasar -->
+    <color name="black_bg">#FF101010</color>
+    <color name="white_text">#FFFFFFFF</color>
+    <color name="red_button">#FFB20710</color>
+    <color name="gray_inactive">#FF6F7277</color>
+
+    <!-- Warna tambahan -->
+    <color name="gray_outline">#FF3A3A3A</color>
+    <color name="gray_hint">#FFA0A0A0</color>
+    <color name="gray_hint_text">#FFA0A0A0</color>
+    <color name="gray_outline">#FFCCCCCC</color>
+    <color name="white_bg">#FFFFFFFF</color>
+    <color name="dark_gray">#FF1E1E1E</color>
+    <color name="yellow_rating">#FFD700</color>
+    <color name="dark_red">#CC0000</color>
+    <color name="red_button">#FF0000</color>
+</resources>
