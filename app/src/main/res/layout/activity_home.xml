@@ -45,11 +45,12 @@
                     android:layout_centerVertical="true"
                     android:layout_marginStart="16dp"
                     android:layout_toEndOf="@id/ivProfile"
-                    android:text="Welcome Back, Osysyy"
+                    android:text="Welcome Back, Username"
                     android:textColor="@color/white_text"
                     android:textSize="20sp"
                     android:textStyle="bold"
                     android:fontFamily="@font/outfit"/>
+
             </RelativeLayout>
 
             <!-- Search Bar -->
@@ -65,6 +66,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Search your favourite movie"
+                    android:fontFamily="@font/outfit"
                     android:textColorHint="@color/gray_hint_text"
                     android:textColor="@color/white_text"/>
             </com.google.android.material.textfield.TextInputLayout>

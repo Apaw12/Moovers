@@ -1,7 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<font-family xmlns:android="http://schemas.android.com/apk/assets/android">
+<font-family xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Normal / Regular -->
     <font
         android:fontStyle="normal"
         android:fontWeight="400"
-        android:font="@font/outfit_regular"/>
+        android:font="@font/outfit_regular" />  <!-- Ganti dengan nama file font regular jika ada -->
+
+    <!-- Bold -->
+    <font
+        android:fontStyle="normal"
+        android:fontWeight="700"
+        android:font="@font/outfit_bold" />
+
+    <!-- Black (Extra Bold) -->
+    <font
+        android:fontStyle="normal"
+        android:fontWeight="800"
+        android:font="@font/outfit_black" />
+
+    <!-- Thin -->
+    <font
+        android:fontStyle="normal"
+        android:fontWeight="100"
+        android:font="@font/outfit_thin" />
+
+    <!-- Light -->
+    <font
+        android:fontStyle="normal"
+        android:fontWeight="300"
+        android:font="@font/outfit_light" />
+
+    <!-- Extra (Contoh: Extra Light) -->
+    <font
+        android:fontStyle="normal"
+        android:fontWeight="200"
+        android:font="@font/outfit_extralight" />
 </font-family>

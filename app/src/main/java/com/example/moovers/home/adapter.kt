@@ -1,3 +1,9 @@
+import android.view.LayoutInflater
+import android.view.ViewGroup
+import androidx.recyclerview.widget.RecyclerView
+import com.example.moovers.databinding.ItemMovieBinding
+import com.example.moovers.model.Movie
+
 class MovieAdapter(private val movies: List<Movie>) :
     RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
 

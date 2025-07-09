@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/black_bg"
+    android:background="@color/black"
     android:gravity="center"
     android:orientation="vertical"
     android:padding="30dp">
@@ -32,7 +32,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Login first!"
-            android:textColor="@color/white_text"
+            android:textColor="@color/white"
             android:textSize="20sp"
             android:layout_marginBottom= "-65dp"
             android:gravity="center"
@@ -43,7 +43,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Hello, MOovers!"
-            android:textColor="@color/white_text"
+            android:textColor="@color/white"
             android:textSize="30sp"
             android:textStyle="bold"
             android:layout_marginBottom= "25dp"
@@ -55,7 +55,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Email :"
-            android:textColor="@color/white_text"
+            android:textColor="@color/white"
             android:textSize="16sp"
             android:layout_marginBottom= "-8dp"
             android:fontFamily="@font/outfit"/>
@@ -75,10 +75,9 @@
                 android:inputType="textEmailAddress"
                 android:layout_height="56dp"
                 android:background="@drawable/rounded_input"
-                android:hint="Masukkan email..."
                 android:paddingHorizontal="16dp"
                 android:paddingVertical="14dp"
-                android:textColor="@color/white_text"
+                android:textColor="@color/black"
                 android:textColorHint="@color/gray_hint_text"
                 android:fontFamily="@font/outfit"/>
         </com.google.android.material.textfield.TextInputLayout>
@@ -88,7 +87,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Password :"
-            android:textColor="@color/white_text"
+            android:textColor="@color/white"
             android:textSize="16sp"
             android:layout_marginBottom="-8dp"
             android:fontFamily="@font/outfit"/>
@@ -106,11 +105,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="56dp"
                 android:background="@drawable/rounded_input"
-                android:hint="masukkan password..."
                 android:inputType="textPassword"
                 android:paddingHorizontal="16dp"
                 android:paddingVertical="14dp"
-                android:textColor="@color/white_text"
+                android:textColor="@color/black"
                 android:textColorHint="@color/gray_hint_text"
                 android:fontFamily="@font/outfit"/>
         </com.google.android.material.textfield.TextInputLayout>
@@ -123,7 +121,7 @@
             android:layout_marginBottom="16dp"
             android:background="@drawable/rounded_red_button_ripple"
             android:text="LOGIN"
-            android:textColor="@color/white_text"
+            android:textColor="@color/white"
             android:fontFamily="@font/outfit"
             app:cornerRadius="28dp"/>
 
@@ -133,7 +131,7 @@
             android:layout_height="56dp"
             android:background="@drawable/rounded_gray_button_ripple"
             android:text="REGISTER"
-            android:textColor="@color/white_text"
+            android:textColor="@color/white"
             android:fontFamily="@font/outfit"
             app:cornerRadius="28dp"/>
     </LinearLayout>

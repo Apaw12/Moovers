@@ -39,6 +39,7 @@ android {
     }
 }
 
+
 dependencies {
     implementation("androidx.recyclerview:recyclerview:1.3.2")
     implementation("com.github.sparrow007:carouselrecyclerview:1.2.6")

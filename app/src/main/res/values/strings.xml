@@ -12,10 +12,8 @@
     <string name="full_name_label">Nama Lengkap</string>
     <string name="full_name_hint">Input nama lengkap...</string>
     <string name="email_label">Email</string>
-    <string name="email_hint">Masukkan email...</string>
     <string name="password_label">Password</string>
     <string name="password_hint">Buat password...</string>
-    <string name="register_button">REGISTER</string>
     <string name="error_empty_field">%s tidak boleh kosong</string>
 
 </resources>

@@ -1,5 +1,10 @@
 package com.example.moovers.home
 
+import android.view.LayoutInflater
+import android.view.ViewGroup
+import androidx.recyclerview.widget.RecyclerView
+import com.example.moovers.databinding.ItemCinemaBinding
+
 class CinemaAdapter(private val cinemas: List<Cinema>) :
     RecyclerView.Adapter<CinemaAdapter.CinemaViewHolder>() {
 
