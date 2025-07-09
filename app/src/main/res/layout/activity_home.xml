@@ -98,141 +98,21 @@
             </RelativeLayout>
 
             <!-- Movie Card - Horizontal Scroll -->
-            <HorizontalScrollView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="32dp"
-                android:scrollbars="none">
+
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
-
-                    <!-- Resident Evil Card -->
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="300dp"
-                        android:layout_height="180dp"
-                        android:layout_marginEnd="16dp"
-                        app:cardBackgroundColor="@color/dark_gray"
-                        app:cardCornerRadius="8dp">
-
-                        <RelativeLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent">
-
-                            <ImageView
-                                android:id="@+id/ivMoviePoster1"
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:scaleType="centerCrop"
-                                android:src="@drawable/resident_evil_poster" />
-
-                            <!-- Movie Info Overlay -->
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_alignParentBottom="true"
-                                android:background="#80000000"
-                                android:orientation="vertical"
-                                android:padding="16dp">
-
-                                <TextView
-                                    android:id="@+id/tvMovieTitle1"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:text="Resident Evil - Racoon City"
-                                    android:textColor="@color/white_text"
-                                    android:textSize="18sp"
-                                    android:textStyle="bold"
-                                    android:fontFamily="@font/outfit"/>
-
-                                <TextView
-                                    android:id="@+id/tvReleaseDate1"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginTop="4dp"
-                                    android:text="November 2021"
-                                    android:textColor="@color/gray_hint_text"
-                                    android:fontFamily="@font/outfit"/>
-
-                                <RatingBar
-                                    android:id="@+id/ratingBar1"
-                                    style="?attr/ratingBarStyleSmall"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginTop="8dp"
-                                    android:isIndicator="true"
-                                    android:numStars="5"
-                                    android:progressTint="@color/yellow_rating"
-                                    android:rating="4.9"
-                                    android:stepSize="0.1"/>
-                            </LinearLayout>
-                        </RelativeLayout>
-                    </androidx.cardview.widget.CardView>
-
-                    <!-- Spiderman Card -->
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="300dp"
-                        android:layout_height="180dp"
-                        app:cardBackgroundColor="@color/dark_gray"
-                        app:cardCornerRadius="8dp">
-
-                        <RelativeLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent">
-
-                            <ImageView
-                                android:id="@+id/ivMoviePoster2"
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:scaleType="centerCrop"
-                                android:src="@drawable/spiderman_poster" />
-
-                            <!-- Movie Info Overlay -->
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_alignParentBottom="true"
-                                android:background="#80000000"
-                                android:orientation="vertical"
-                                android:padding="16dp">
-
-                                <TextView
-                                    android:id="@+id/tvMovieTitle2"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:text="Spider-Man: No Way Home"
-                                    android:textColor="@color/white_text"
-                                    android:textSize="18sp"
-                                    android:textStyle="bold"
-                                    android:fontFamily="@font/outfit"/>
-
-                                <TextView
-                                    android:id="@+id/tvReleaseDate2"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginTop="4dp"
-                                    android:text="December 2021"
-                                    android:textColor="@color/gray_hint_text"
-                                    android:fontFamily="@font/outfit"/>
-
-                                <RatingBar
-                                    android:id="@+id/ratingBar2"
-                                    style="?attr/ratingBarStyleSmall"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginTop="8dp"
-                                    android:isIndicator="true"
-                                    android:numStars="5"
-                                    android:progressTint="@color/yellow_rating"
-                                    android:rating="4.8"
-                                    android:stepSize="0.1"/>
-                            </LinearLayout>
-                        </RelativeLayout>
-                    </androidx.cardview.widget.CardView>
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recyclerMovies"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="32dp"
+                        android:overScrollMode="never"
+                        tools:listitem="@layout/item_movie_card" />
                 </LinearLayout>
-            </HorizontalScrollView>
+
 
             <!-- Cinema Near You Section -->
             <RelativeLayout

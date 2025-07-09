@@ -5,6 +5,120 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".home.MovieDetailActivity">
+    android:background="@color/black_bg"
+    tools:context=".detail.MovieDetail">
+
+    <!-- Navbar Atas -->
+    <LinearLayout
+        android:id="@+id/topAppBar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:padding="16dp"
+        android:background="@color/black_bg"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <ImageView
+            android:id="@+id/btnBack"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_back"
+            android:contentDescription="Back"
+            android:tint="@color/white_text"/>
+
+        <TextView
+            android:id="@+id/tvPageTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Details Movie"
+            android:textColor="@color/white_text"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:fontFamily="@font/outfit"
+            android:layout_marginStart="16dp" />
+    </LinearLayout>
+
+    <!-- Scrollable Konten -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="60dp"
+        app:layout_constraintTop_toBottomOf="@id/topAppBar"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="24dp"
+            android:background="@color/black_bg">
+
+            <!-- Poster Film -->
+            <ImageView
+                android:id="@+id/imgPoster"
+                android:layout_width="match_parent"
+                android:layout_height="567dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/shangchi" />
+
+            <!-- Judul -->
+            <TextView
+                android:id="@+id/tvTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textColor="@color/white_text"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:fontFamily="@font/outfit"
+                android:layout_marginTop="16dp"/>
+
+            <!-- Sutradara & Rating -->
+            <TextView
+                android:id="@+id/tvDirector"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textColor="@color/gray_hint_text"
+                android:textSize="14sp"
+                android:fontFamily="@font/outfit"
+                android:layout_marginTop="4dp"/>
+
+            <!-- Genre dan Durasi -->
+            <LinearLayout
+                android:id="@+id/genreContainer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="8dp">
+                <!-- Isi genre/durasi bisa kamu generate dari Kotlin -->
+            </LinearLayout>
+
+            <!-- Sinopsis -->
+
+            <TextView
+                android:id="@+id/tvSynopsis"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textColor="@color/gray_hint_text"
+                android:textSize="14sp"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/outfit"/>
+
+            <!-- Tombol Book -->
+            <Button
+                android:id="@+id/btnBook"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Book Ticket"
+                android:textColor="@android:color/white"
+                android:layout_marginTop="24dp"
+                android:backgroundTint="@color/red_button"/>
+        </LinearLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

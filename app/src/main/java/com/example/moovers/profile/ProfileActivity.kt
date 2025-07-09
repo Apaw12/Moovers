@@ -3,6 +3,7 @@ package com.example.moovers.profile
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.moovers.R
@@ -23,6 +24,12 @@ class ProfileActivity : AppCompatActivity() {
         val sharedPref = getSharedPreferences("user_pref", Context.MODE_PRIVATE)
         val username = sharedPref.getString("USERNAME", "User")
         binding.tvProfileName.text = username
+
+        val ticketLayout = findViewById<LinearLayout>(R.id.YourTicket)
+        ticketLayout.setOnClickListener {
+            startActivity(Intent(this, MyTicket::class.java))
+        }
+
 
         // Tombol logout
         binding.btnLogout.setOnClickListener {

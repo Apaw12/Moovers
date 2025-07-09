@@ -139,15 +139,17 @@
     <color name="black">#000000</color>
 
     <!-- Warna dasar -->
-    <color name="black_bg">#FF101010</color>
-    <color name="white_text">#FFFFFFFF</color>
-    <color name="red_button">#FFB20710</color>
+    <color name="white_text">#FFFFFF</color>
+    <color name="black_bg">#121212</color>
+    <color name="gray_outline">#444444</color>
+    <color name="red_reserved">#D32F2F</color>
+    <color name="yellow_selected">#FFEB3B</color>
+    <color name="red_button">#D32F2F</color>
+    <color name="dark_gray">#1F1F1F</color>
     <color name="gray_inactive">#FF6F7277</color>
-    <color name="gray_outline">#FF3A3A3A</color>
     <color name="gray_hint">#FFA0A0A0</color>
     <color name="gray_hint_text">#FFA0A0A0</color>
     <color name="white_bg">#FFFFFFFF</color>
-    <color name="dark_gray">#FF1E1E1E</color>
     <color name="yellow_rating">#FFD700</color>
     <color name="dark_red">#CC0000</color>
 </resources>

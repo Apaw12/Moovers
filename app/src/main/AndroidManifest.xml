@@ -9,20 +9,27 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Moovers">
-
+        <activity
+            android:name=".profile.MyTicket" />
+        <activity
+            android:name=".model.TicketData" />
+        <activity
+            android:name=".checkout.SeatSelectionActivity" />
+        <activity android:name=".detail.MovieDetail" />
         <activity android:name=".explore.ExploreActivity" />
+        <activity android:name=".checkout.CheckoutActivity" />
         <activity android:name=".profile.ProfileActivity" />
         <activity android:name=".home.HomeActivity" />
-        <activity android:name=".auth.RegisterActivity" />
-
-        <!-- Ini launcher utama -->
-        <activity android:name=".auth.LoginActivity"
+        <activity android:name=".auth.RegisterActivity" /> <!-- Ini launcher utama -->
+        <activity
+            android:name=".auth.LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
     </application>
+
 </manifest>

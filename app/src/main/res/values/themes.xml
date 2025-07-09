@@ -1,10 +1,16 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-<style name="Theme.Moovers" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-    <item name="android:windowBackground">@color/black_bg</item>
-    <item name="android:statusBarColor">@color/black_bg</item>
-    <item name="colorPrimary">@color/red_button</item>
-    <item name="colorOnPrimary">@color/white_text</item>
-    <item name="android:textColorPrimary">@color/white_text</item>
-    <item name="android:textColorSecondary">@color/gray_hint</item>
-</style>
+
+    <style name="Theme.Moovers" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="android:windowBackground">@color/black_bg</item>
+        <item name="android:statusBarColor">@color/black_bg</item>
+        <item name="colorPrimary">@color/red_button</item>
+        <item name="colorOnPrimary">@color/white_text</item>
+        <item name="android:textColorPrimary">@color/white_text</item>
+        <item name="android:textColorSecondary">@color/gray_hint</item>
+    </style>
+    <!-- Base application theme. -->
+    <style name="Base.Theme.Moovers" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    </style>
 </resources>

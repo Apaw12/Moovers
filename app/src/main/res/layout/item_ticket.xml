@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="16dp"
+    android:layout_marginHorizontal="8dp"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="4dp"
+    app:cardBackgroundColor="@color/dark_gray">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/tvMovieTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Movie Title"
+            android:textSize="18sp"
+            android:textColor="@color/white_text"
+            android:textStyle="bold"
+            android:fontFamily="@font/outfit"/>
+
+        <TextView
+            android:id="@+id/tvSeat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Seat: A1, A2"
+            android:textColor="@color/gray_hint_text"
+            android:textSize="14sp"
+            android:layout_marginTop="4dp"
+            android:fontFamily="@font/outfit"/>
+
+        <TextView
+            android:id="@+id/tvDateTime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="2025-07-09 | 18:30"
+            android:textColor="@color/gray_hint_text"
+            android:textSize="14sp"
+            android:layout_marginTop="2dp"
+            android:fontFamily="@font/outfit"/>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>
