@@ -24,9 +24,9 @@ class HomeActivity : AppCompatActivity() {
         // Set selected nav item to Home
         binding.bottomNavigation.selectedItemId = R.id.nav_home
 
-        // Ambil nama user dari intent, fallback jika null
-        val username = intent.getStringExtra("USERNAME") ?: "User"
-        binding.tvWelcome.text = "Welcome Back, $username"
+        val sharedPref = getSharedPreferences("user_pref", Context.MODE_PRIVATE)
+        val username = sharedPref.getString("USERNAME", "User")
+        binding.tvWelcome.text = "Welcome back," + " " + username
 
         // Setup Bottom Navigation
         binding.bottomNavigation.setOnItemSelectedListener { item ->

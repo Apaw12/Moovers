@@ -19,44 +19,37 @@ class ProfileActivity : AppCompatActivity() {
         binding = ActivityProfileBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Set selected item agar ikon Profile aktif
-        binding.bottomNavigation.selectedItemId = R.id.nav_profile
+        // Menampilkan nama user dari SharedPreferences
+        val sharedPref = getSharedPreferences("user_pref", Context.MODE_PRIVATE)
+        val username = sharedPref.getString("USERNAME", "User")
+        binding.tvProfileName.text = username
 
-        // Tombol Logout
+        // Tombol logout
         binding.btnLogout.setOnClickListener {
-            val sharedPref = getSharedPreferences("user_pref", Context.MODE_PRIVATE)
-            sharedPref.edit().clear().apply()
+            sharedPref.edit().remove("USERNAME").apply() // Hanya hapus status login
             Toast.makeText(this, "Logout berhasil", Toast.LENGTH_SHORT).show()
             startActivity(Intent(this, LoginActivity::class.java))
             finish()
         }
 
-        // Bottom Navigation listener
+
+        // Bottom navigation
+        binding.bottomNavigation.selectedItemId = R.id.nav_profile
         binding.bottomNavigation.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.nav_home -> {
-                    if (this !is HomeActivity) {
-                        startActivity(Intent(this, HomeActivity::class.java))
-                        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
-                        finish() // optional: agar tidak menumpuk activity
-                    }
+                    startActivity(Intent(this, HomeActivity::class.java))
+                    overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
+                    finish()
                     true
                 }
-
                 R.id.nav_explore -> {
-                    if (this !is ExploreActivity) {
-                        startActivity(Intent(this, ExploreActivity::class.java))
-                        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
-                        finish()
-                    }
+                    startActivity(Intent(this, ExploreActivity::class.java))
+                    overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
+                    finish()
                     true
                 }
-
-                R.id.nav_profile -> {
-                    // Sudah di ProfileActivity, tidak perlu pindah
-                    true
-                }
-
+                R.id.nav_profile -> true
                 else -> false
             }
         }

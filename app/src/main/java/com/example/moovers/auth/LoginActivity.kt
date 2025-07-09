@@ -19,17 +19,23 @@ class LoginActivity : AppCompatActivity() {
         binding.loginButton.setOnClickListener {
             val inputEmail = binding.emailInputLayout.editText?.text.toString()
             val inputPassword = binding.passwordInputLayout.editText?.text.toString()
-
             val sharedPref = getSharedPreferences("user_pref", Context.MODE_PRIVATE)
             val savedEmail = sharedPref.getString("email", null)
             val savedPassword = sharedPref.getString("password", null)
             val savedName = sharedPref.getString("name", "User")
+            val editor = sharedPref.edit()
+
+
 
             if (inputEmail == savedEmail && inputPassword == savedPassword) {
                 Toast.makeText(this, "Login berhasil!", Toast.LENGTH_SHORT).show()
 
+                // Simpan nama user ke SharedPreferences
+                editor.putString("USERNAME", savedName) // Tambahkan ini!
+                editor.apply()
+
+                // Mulai HomeActivity tanpa perlu kirim intent kalau mau ambil dari SharedPreferences
                 val intent = Intent(this, HomeActivity::class.java)
-                intent.putExtra("USERNAME", savedName)
                 startActivity(intent)
                 overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
                 finish()
@@ -40,7 +46,6 @@ class LoginActivity : AppCompatActivity() {
 
         binding.registerButton.setOnClickListener {
             startActivity(Intent(this, RegisterActivity::class.java))
-            overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
         }
     }
 }

@@ -20,6 +20,15 @@ class RegisterActivity : AppCompatActivity() {
             val name = binding.nameEditText.text.toString()
             val email = binding.emailEditText.text.toString()
             val password = binding.passwordEditText.text.toString()
+            val sharedPref = getSharedPreferences("user_pref", Context.MODE_PRIVATE)
+            val existingEmail = sharedPref.getString("email", null)
+
+            if (existingEmail == email) {
+                Toast.makeText(this, "Email sudah terdaftar!", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+
 
             if (name.isEmpty() || email.isEmpty() || password.isEmpty()) {
                 Toast.makeText(this, "Semua field wajib diisi!", Toast.LENGTH_SHORT).show()
