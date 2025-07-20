@@ -1,49 +1,51 @@
 package com.example.moovers.auth
 
-import android.content.Context
-import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.moovers.databinding.ActivityRegisterBinding
-import com.example.moovers.auth.LoginActivity
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+import com.example.moovers.user.User
+import com.example.moovers.user.UserDAO
+import com.example.moovers.database.AppDatabase
 
 class RegisterActivity : AppCompatActivity() {
     private lateinit var binding: ActivityRegisterBinding
+    private lateinit var db: AppDatabase
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityRegisterBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.btnRegister.setOnClickListener {
-            val name = binding.nameEditText.text.toString()
-            val email = binding.emailEditText.text.toString()
-            val password = binding.passwordEditText.text.toString()
-            val sharedPref = getSharedPreferences("user_pref", Context.MODE_PRIVATE)
-            val existingEmail = sharedPref.getString("email", null)
+        db = AppDatabase.getDatabase(this)
 
-            if (existingEmail == email) {
-                Toast.makeText(this, "Email sudah terdaftar!", Toast.LENGTH_SHORT).show()
+        binding.btnRegister.setOnClickListener {
+            val name = binding.nameEditText.text.toString().trim()
+            val email = binding.emailEditText.text.toString().trim()
+            val password = binding.passwordEditText.text.toString().trim()
+
+            if (name.isEmpty() || email.isEmpty() || password.isEmpty()) {
+                Toast.makeText(this, "Semua field harus diisi", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
-
-
-            if (name.isEmpty() || email.isEmpty() || password.isEmpty()) {
-                Toast.makeText(this, "Semua field wajib diisi!", Toast.LENGTH_SHORT).show()
-            } else {
-                val sharedPref = getSharedPreferences("user_pref", Context.MODE_PRIVATE)
-                with(sharedPref.edit()) {
-                    putString("name", name)
-                    putString("email", email)
-                    putString("password", password)
-                    apply()
+            CoroutineScope(Dispatchers.IO).launch {
+                val existingUser = db.userDao().getUserByEmail(email)
+                if (existingUser == null) {
+                    db.userDao().registerUser(User(name = name, email = email, password = password))
+                    withContext(Dispatchers.Main) {
+                        Toast.makeText(this@RegisterActivity, "Registrasi Berhasil!", Toast.LENGTH_SHORT).show()
+                        finish()
+                    }
+                } else {
+                    withContext(Dispatchers.Main) {
+                        Toast.makeText(this@RegisterActivity, "Email sudah terdaftar", Toast.LENGTH_SHORT).show()
+                    }
                 }
-
-                Toast.makeText(this, "Registrasi berhasil!", Toast.LENGTH_SHORT).show()
-                startActivity(Intent(this, LoginActivity::class.java))
-                finish()
             }
         }
     }

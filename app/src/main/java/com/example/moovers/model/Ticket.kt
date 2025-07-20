@@ -4,10 +4,12 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity(tableName = "tickets")
-data class TicketData(
+data class Ticket(
     @PrimaryKey(autoGenerate = true) val id: Int = 0,
     val userId: Int,
     val movieTitle: String,
     val seatNumber: String,
-    val bookingDate: String
+    val bookingDate: String,
+    val bookingTime: String
 )
+

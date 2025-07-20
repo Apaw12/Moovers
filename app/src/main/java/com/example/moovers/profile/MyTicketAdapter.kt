@@ -6,10 +6,12 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.moovers.R
-import com.example.moovers.model.TicketData
+import com.example.moovers.model.Ticket
 
-class MyTicketAdapter(private val ticketList: List<TicketData>) :
-    RecyclerView.Adapter<MyTicketAdapter.TicketViewHolder>() {
+class MyTicketAdapter(
+    private var ticketList: List<Ticket>,
+    private val onDelete: (Ticket) -> Unit
+) : RecyclerView.Adapter<MyTicketAdapter.TicketViewHolder>() {
 
     inner class TicketViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val tvTitle: TextView = itemView.findViewById(R.id.tvMovieTitle)
@@ -26,9 +28,22 @@ class MyTicketAdapter(private val ticketList: List<TicketData>) :
     override fun onBindViewHolder(holder: TicketViewHolder, position: Int) {
         val ticket = ticketList[position]
         holder.tvTitle.text = ticket.movieTitle
-        holder.tvSeat.text = "Seat: ${ticket.seat}"
-        holder.tvDateTime.text = "${ticket.date} | ${ticket.time}"
+        holder.tvSeat.text = "Seat: ${ticket.seatNumber}"
+        holder.tvDateTime.text = "${ticket.bookingDate} | ${ticket.bookingTime}"
+
+        // Long Click untuk Delete
+        holder.itemView.setOnLongClickListener {
+            onDelete(ticket)
+            true
+        }
     }
 
     override fun getItemCount(): Int = ticketList.size
+
+    fun updateTickets(newTickets: List<Ticket>) {
+        ticketList = newTickets
+        notifyDataSetChanged()
+    }
 }
+
+

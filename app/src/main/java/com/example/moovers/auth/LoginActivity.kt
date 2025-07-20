@@ -1,46 +1,62 @@
 package com.example.moovers.auth
 
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
+import com.example.moovers.database.AppDatabase
 import com.example.moovers.databinding.ActivityLoginBinding
 import com.example.moovers.home.HomeActivity
+import com.example.moovers.session.DataStoreManager
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+import android.util.Log
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLoginBinding
+    private lateinit var db: AppDatabase
+    private lateinit var session: DataStoreManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        db = AppDatabase.getDatabase(this)
+        session = DataStoreManager(this)
+
         binding.loginButton.setOnClickListener {
-            val inputEmail = binding.emailInputLayout.editText?.text.toString()
-            val inputPassword = binding.passwordInputLayout.editText?.text.toString()
-            val sharedPref = getSharedPreferences("user_pref", Context.MODE_PRIVATE)
-            val savedEmail = sharedPref.getString("email", null)
-            val savedPassword = sharedPref.getString("password", null)
-            val savedName = sharedPref.getString("name", "User")
-            val editor = sharedPref.edit()
+            val email = binding.emailEditText.text.toString()
+            val password = binding.passwordEditText.text.toString()
 
+            if (email.isEmpty() || password.isEmpty()) {
+                Toast.makeText(this, "Email & Password tidak boleh kosong!", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
 
-
-            if (inputEmail == savedEmail && inputPassword == savedPassword) {
-                Toast.makeText(this, "Login berhasil!", Toast.LENGTH_SHORT).show()
-
-                // Simpan nama user ke SharedPreferences
-                editor.putString("USERNAME", savedName) // Tambahkan ini!
-                editor.apply()
-
-                // Mulai HomeActivity tanpa perlu kirim intent kalau mau ambil dari SharedPreferences
-                val intent = Intent(this, HomeActivity::class.java)
-                startActivity(intent)
-                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
-                finish()
-            } else {
-                Toast.makeText(this, "Email atau password salah!", Toast.LENGTH_SHORT).show()
+            lifecycleScope.launch(Dispatchers.IO) {
+                val user = db.userDao().loginUser(email, password)
+                withContext(Dispatchers.Main) {
+                    if (user != null) {
+                        lifecycleScope.launch {
+                            session.saveUserId(user.id)
+                            Log.d("SESSION_SAVE", "Saved userId: ${user.id}")
+                            withContext(Dispatchers.Main) {
+                                Toast.makeText(
+                                    this@LoginActivity,
+                                    "Login Berhasil!",
+                                    Toast.LENGTH_SHORT
+                                ).show()
+                                startActivity(Intent(this@LoginActivity, HomeActivity::class.java))
+                                finish()
+                            }
+                        }
+                    } else {
+                        Toast.makeText(this@LoginActivity, "Email atau Password salah!", Toast.LENGTH_SHORT).show()
+                    }
+                }
             }
         }
 
