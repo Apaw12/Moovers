@@ -25,6 +25,10 @@
     <string name="seat_reserved">Reserved</string>
     <string name="seat_available">Available</string>
 
+    <string name="now_showing">Now Showing</string>
+    <string name="upcoming">Upcoming</string>
+    <string name="back">Back</string>
+    <string name="search">Search</string>
 
     <string name="lorem_ipsum">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in scelerisque sem. Mauris
