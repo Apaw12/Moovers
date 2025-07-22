@@ -39,6 +39,40 @@
             android:contentDescription="@string/search" />
     </LinearLayout>
 
+    <!-- Search Bar (Initially Hidden) -->
+    <LinearLayout
+        android:id="@+id/searchBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="12dp"
+        android:visibility="gone"
+        android:gravity="center_vertical">
+
+        <EditText
+            android:id="@+id/etSearch"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="Search movies..."
+            android:padding="8dp"
+            android:background="@drawable/bg_edittext"
+            android:textColor="@color/white"
+            android:textColorHint="@color/gray_hint_text"
+            android:imeOptions="actionSearch"
+            android:singleLine="true"
+            android:inputType="text" />
+
+        <Button
+            android:id="@+id/btnDoSearch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Search"
+            android:backgroundTint="@color/red"
+            android:textColor="@color/white"
+            android:layout_marginStart="8dp"/>
+    </LinearLayout>
+
     <!-- Tabs -->
     <LinearLayout
         android:layout_width="match_parent"
@@ -51,7 +85,7 @@
             android:id="@+id/btnNowShowing"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/bg_btn_selected"
+            android:backgroundTint="@color/red"
             android:text="Now Showing"
             android:textColor="@color/white"
             android:paddingHorizontal="20dp"/>
@@ -60,7 +94,7 @@
             android:id="@+id/btnUpcoming"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/bg_btn_unselected"
+            android:backgroundTint="@color/red"
             android:text="Upcoming"
             android:textColor="@color/white"
             android:paddingHorizontal="20dp"
@@ -68,10 +102,11 @@
     </LinearLayout>
 
     <!-- Scrollable Content -->
-    <ScrollView
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1">
+        android:layout_weight="1"
+        android:fillViewport="true">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -92,7 +127,8 @@
                 android:id="@+id/rvTopMovies"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:overScrollMode="never"/>
+                android:overScrollMode="never"
+                android:nestedScrollingEnabled="false"/>
 
             <!-- Recommended -->
             <TextView
@@ -108,9 +144,10 @@
                 android:id="@+id/rvRecommended"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:overScrollMode="never"/>
+                android:overScrollMode="never"
+                android:nestedScrollingEnabled="false"/>
         </LinearLayout>
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
 
     <!-- Bottom Navigation -->
     <com.google.android.material.bottomnavigation.BottomNavigationView

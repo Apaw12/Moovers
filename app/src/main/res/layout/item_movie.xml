@@ -8,36 +8,41 @@
     android:padding="16dp"
     android:layout_marginBottom="8dp">
 
+    <!-- Movie Poster -->
     <ImageView
-        android:id="@+id/ivMovie"
+        android:id="@+id/ivMoviePoster"
         android:layout_width="80dp"
         android:layout_height="120dp"
         android:scaleType="centerCrop"
-        android:src="@drawable/shangchi"/>
+        android:src="@drawable/shangchi" />
 
+    <!-- Movie Info -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:orientation="vertical">
 
+        <!-- Title -->
         <TextView
-            android:id="@+id/tvTitle"
+            android:id="@+id/tvMovieTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Shang-Chi"
             android:textColor="@color/white_text"
             android:textSize="18sp"
-            android:textStyle="bold"/>
+            android:textStyle="bold" />
 
+        <!-- Release Date -->
         <TextView
-            android:id="@+id/tvGenre"
+            android:id="@+id/tvReleaseDate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:text="Action, Fantasy"
-            android:textColor="@color/gray_hint_text"/>
+            android:text="2021"
+            android:textColor="@color/gray_hint_text" />
 
+        <!-- Rating -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -51,14 +56,17 @@
                 android:layout_height="wrap_content"
                 android:numStars="5"
                 android:rating="4.5"
-                android:stepSize="0.1"/>
+                android:stepSize="0.5"
+                android:isIndicator="true"
+                android:progressTint="@color/yellow" />
 
             <TextView
+                android:id="@+id/tvRatingValue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:text="4.9"
-                android:textColor="@color/white_text"/>
+                android:textColor="@color/white_text" />
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>

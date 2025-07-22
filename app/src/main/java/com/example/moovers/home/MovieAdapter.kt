@@ -13,16 +13,17 @@ import com.example.moovers.model.Movie
 
 class MovieAdapter(
     private val context: Context,
-    private val movies: List<Movie>,
+    private var movies: List<Movie>,
     private val onMovieClick: (Movie) -> Unit
 ) : RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
+
+    private var originalMovies: List<Movie> = movies.toList()
 
     inner class MovieViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val imagePoster: ImageView = itemView.findViewById(R.id.ivMoviePoster)
         val tvTitle: TextView = itemView.findViewById(R.id.tvMovieTitle)
         val tvDate: TextView = itemView.findViewById(R.id.tvReleaseDate)
         val ratingBar: RatingBar = itemView.findViewById(R.id.ratingBar)
-
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {
@@ -40,4 +41,25 @@ class MovieAdapter(
     }
 
     override fun getItemCount(): Int = movies.size
+
+    /**
+     * Update dataset and refresh RecyclerView.
+     */
+    fun updateData(newMovies: List<Movie>) {
+        movies = newMovies
+        originalMovies = newMovies.toList() // <-- FIX: refresh originalMovies too
+        notifyDataSetChanged()
+    }
+
+    /**
+     * Filter movies by title.
+     */
+    fun filterData(query: String) {
+        movies = if (query.isEmpty()) {
+            originalMovies
+        } else {
+            originalMovies.filter { it.title.contains(query, ignoreCase = true) }
+        }
+        notifyDataSetChanged()
+    }
 }
